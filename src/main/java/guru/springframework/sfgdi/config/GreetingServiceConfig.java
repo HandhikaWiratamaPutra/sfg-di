@@ -5,11 +5,9 @@ import com.springframework.pets.PetServiceFactory;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
     //cara ini biasa dipakai kalau class yang akan dipakai itu bukan punya kita
@@ -18,10 +16,10 @@ public class GreetingServiceConfig {
     //maka kita perlu inisiate class tersebut ke bean biar terdaftar di bean
     //bean yang terdaftar pun menggunakan lower case dari nama class yang terdaftar seperti constructorGreetingService
     //sebenernya bisa2 aja nama bean ga sama dengan nama class, tapi sebaiknya tetap disamakan saja
-    @Bean
-    ConstructorGreetingService constructorGreetingService(){
-        return new ConstructorGreetingService();
-    }
+//    @Bean     //sekarang bisa comment bean karena sudah di set di xml configuration
+//    ConstructorGreetingService constructorGreetingService(){
+//        return new ConstructorGreetingService();
+//    }
 
     @Bean
     PropertyInjectedGreetingService propertyInjectedGreetingService(){
