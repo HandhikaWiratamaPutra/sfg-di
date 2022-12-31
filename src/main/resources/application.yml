@@ -1,7 +1,18 @@
 spring:
   profiles:
-    active: cat,EN,uat2
+    active:
+      - cat
+      - EN
+      - prod
 guru:
   username: YmlUserName
   password: YmlPassword
   jdbcurl: YmlURL
+
+---
+spring:
+  profiles: prod
+guru:
+  username: YmlUserNameProd
+  password: YmlPasswordProd
+  jdbcurl: YmlURLProd
